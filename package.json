@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.3.1",
-    "python-shell": "^1.0.7"
+    "python-shell": "^1.0.7",
+    "request": "^2.88.0"
   }
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "UTF-8">
+      <title>Prototype</title>
+      <link rel = "stylesheet" 
+         href = "./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+         <!-- If the require doesn't work, include first the jQuery file
+<script src="jquery-3.0.0.min.js"></script>-->
+
+   </head>
+   <style>
+  body{
+    color:white;
+    background-color:#424242
+  }
+  </style>
+   
+   <body>
+      <div class = "container text-center">
+        <h1>Automatic Meter Reading System</h1>
+        <h2>Extracted Led</h2>
+        <div id ="ex">
+          <img class='img-responsive' src='result/1.jpg' alt='Chania'>
+        </div>
+    <h2>Detected</h2><br><br><img class='img-responsive' src='result/bound.jpg' alt='Chania'>
+    <p>The extracted Led is passed to SSD object detector to isolate and localize digits for recognition.Tensorflow object detection API is used for this purpose</p>
+<script src = "./bill_form.js" ></script>
+
+        <h2>
+          Detected Digits
+        </h2>
+        <p>The localize digist are passed to mobilenet for classification.</p>
+        <input type="text" class="form-control" id="unit">
+
+      </div>
+   </body>
+</html>

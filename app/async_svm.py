@@ -16,7 +16,7 @@ def extract(contours,i):
                 f=f.reshape(1,f.shape[0])
                 if (svm.predict(np.float32(f))[1].ravel()[0] == 1):
                     ar=image[y:y+h,x:x+w]
-                    
+                    ar=cv2.resize(ar,(512,128))
                     cv2.imwrite('result\\1.jpg',ar)
                     print("yes")
                     sys.stdout.flush()

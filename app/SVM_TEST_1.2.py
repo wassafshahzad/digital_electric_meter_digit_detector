@@ -5,12 +5,18 @@ import cv2
 ##Main function
 def extract(contours,i):
     for c in contours:
-        x,y,w,h = cv2.boundingRect(c)
+        x,y,w,h = cv2.boundingRect(c) 
         if (w>h and w>128):
+                #
+                i=cv2.rectangle(i,(x,y),(x+w,y+h),(0,255,0),3)
+                cv2.imshow("im",i) 
+                cv2.waitKey(0)      
                 r=i[y:y+h,x:x+w]
                 p=cv2.resize(r,(512,256))
                 f=hog1.compute(p)
                 f=f.reshape(1,f.shape[0])
+                cv2.imwrite('C:\\Users\\wassaf\\Desktop\\pics\\Positive\\again'+str(h)+str(x)+'.bmp',r)
+                print(svm.predict(np.float32(f))[1].ravel()[0])
                 if (svm.predict(np.float32(f))[1].ravel()[0] == 1):
                     ar=image[y:y+h,x:x+w]
                     cv2.imwrite('result\\1.jpg',ar)
@@ -44,7 +50,7 @@ svmvec = np.append(svmvec, rho)
 hog1.setSVMDetector(svmvec)
  
 #Precrocessing
-image=cv2.imread(r"{}".format(sys.argv[1]))
+image=cv2.imread(r"C:\Users\wassaf\Desktop\pics\Pic\20180806_141433.jpg")
 image=cv2.resize(image,(512,256))
 i = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 th5= cv2.adaptiveThreshold(i,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,25,7)
