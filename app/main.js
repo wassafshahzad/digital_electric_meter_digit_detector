@@ -4,6 +4,7 @@ const path = require('path')
 const {PythonShell}  =require('python-shell');
 const request = require('request')
 const fs = require('fs');
+const player = require('node-wav-player');
 
 let win,bill_form,file_g
 
@@ -36,6 +37,7 @@ ipcMain.on('led',function(e,file){
     const pyProg = spawn('python', ['async_svm.py',file]);
     pyProg.stdout.on('data', (data) => {
     	win.webContents.send("image")
+
 	});
 	pyProg.stderr.on('data', (data) => {
     	console.log(data.toString())

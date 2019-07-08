@@ -26,5 +26,7 @@ ipc.on("load",function(e){
 
 ipc.on("image",function(e){
 	$("#content").html("<h3>Extracted</h3><br><br><img class='img-responsive' src='result/1.jpg' alt='Chania'><p>The Led is extracted using Hog as a feature extractor and svm classifier.The image is first converted to binary form and contours having length greater than heigh are passed to hog+svm for classification.</p>")
+	$("#yes-audio").trigger('play')
 	$('#butt').show()
+
 });
